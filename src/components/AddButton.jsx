@@ -7,7 +7,7 @@ import { NoteContext } from "../context/NoteContext";
 const AddButton = () => {
     const { setNotes } = useContext(NoteContext);
 
-    const startingPos = useRef(10);
+    const startingPos = useRef(200);
 
     const addNote = async () => {
         const payload = {
@@ -18,7 +18,7 @@ const AddButton = () => {
             colors: JSON.stringify(colors[0])
         };
 
-        startingPos.current += 10;
+        startingPos.current += 100;
 
         await db.notes.create(payload)
         setNotes((prevState) => [payload, ...prevState])
